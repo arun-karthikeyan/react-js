@@ -1,0 +1,28 @@
+{
+  "name": "react-js-example",
+  "homepage": "https://github.com/the3drevolution/react-js",
+  "authors": [
+    "akarthi2@asu.edu"
+  ],
+  "description": "a starter example with react js",
+  "main": "index.html",
+  "keywords": [
+    "react",
+    "javascript",
+    "js",
+    "virtual",
+    "dom"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "^15.3.0",
+    "babel": "^5.8.38"
+  }
+}
