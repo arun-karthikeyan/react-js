@@ -1,2 +1,2 @@
 # react-js
-React JS learning starter code
+My React JS Components
