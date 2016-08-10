@@ -1,0 +1,61 @@
+#stars-frame .glyphicon{
+  margin: 0.3em;
+  font-size: 1.75em;
+}
+
+#stars-frame .well{
+  height: 200px;
+}
+
+#button-frame {
+  height: 200px;
+  text-align: center;
+}
+
+#status-button {
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+#refresh-button {
+  top: calc(50% + 50px);
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+#answer-frame .well{
+  height: 200px;
+}
+
+.number {
+  background-color: #bbb;
+  display: inline-block;
+  margin: 0.5em;
+  width: 30px;
+  text-align: center;
+  font-size: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#number-frame .number.selected-true{
+  background-color: #fdae6b;
+  cursor: not-allowed;
+}
+
+#number-frame .number.used{
+  background-color: #74c476;
+  cursor: not-allowed;
+}
+
+#done-frame .well {
+  text-align: center;
+  font-size: 1.5em;
+}
