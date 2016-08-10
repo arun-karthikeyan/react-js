@@ -1,8 +1,9 @@
 var Card = React.createClass({
   getInitialState(){
-    return {userInfo: {}};
+    return {};
   },
   render(){
+    if(this.state.shouldRender){
     return (
       <div>
       <img src={this.state.avatar_url} width="80px"/>
@@ -11,9 +12,12 @@ var Card = React.createClass({
       </div>
 
     );
+  }
+    return false;
   },
-  componentDidMount(){
-    $.get('https://api.github.com/users/'+this.props.username,({avatar_url, name}) => this.setState({avatar_url, name}));
+  componentWillMount(){
+    $.get('https://api.github.com/users/'+this.props.username,({avatar_url, name}) => this.setState({avatar_url, name, shouldRender: true}))
+    .fail(() => this.setState({shouldRender: false}));
   }
 });
 var Form = React.createClass({
