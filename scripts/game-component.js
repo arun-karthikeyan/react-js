@@ -128,29 +128,23 @@ solutionPossible(){
   arraySum[0] = true;
   let numbersLeft = [];
   for(let i=1; i<10; ++i){
-    if(this.state.usedNumbers.indexOf(i)<0){
+    if((this.state.usedNumbers.indexOf(i)<0) && (i<=requiredSum)){
       numbersLeft.push(i);
     }
   }
-  for(let i=0; i<numbersLeft.length; ++i){
+  for(let i=0,iLen=numbersLeft.length; i<iLen; ++i){
     let currentNo = numbersLeft[i];
-    if(currentNo>requiredSum){
-      continue;
-    }
-    for(let j=0; j<arraySum.length; ++j){
-      if(!arraySum[j] || currentNo==arraySum[j]){
+    for(let j=0,jLen=arraySum.length-1; j<jLen; ++j){
+      if(!arraySum[j] || currentNo==j){
         continue;
       }
       let currentSum = j+currentNo;
-      if(currentSum == requiredSum){
-        return true;
-      }
-      if(currentSum<requiredSum){
+      if(currentSum <= requiredSum){
         arraySum[currentSum] = true;
       }
     }
   }
-  return false;
+  return arraySum[requiredSum];
 },
 getNumberOfStars(){
   return Math.floor(Math.random()*9)+1;
