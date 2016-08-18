@@ -7,7 +7,7 @@ var StarsFrame = React.createClass({
     }
     return (
       <div id="stars-frame">
-      <div className="well">
+      <div className="well" style={this.props.bgProperty()}>
       {starsJSX}
       </div>
       </div>
@@ -47,7 +47,7 @@ var AnswerFrame = React.createClass({
     }
     return (
       <div id="answer-frame">
-      <div className="well">
+      <div className="well" style={this.props.bgProperty()}>
       {selectedNumbersJSX}
       </div>
       </div>
@@ -79,7 +79,7 @@ var DoneFrame = React.createClass({
       <div id="done-frame">
       <div className="well">
         <div className="row">
-          <div className="col-xs-12">
+          <div className="col-xs-12" style={{marginBottom: '15px'}}>
             {this.props.doneStatus}
           </div>
           <div className="col-xs-12">
@@ -165,6 +165,22 @@ sumOfSelectedNumbers(){
   }
   return sum;
 },
+getBgProperty(){
+  let style={};
+  let doneStatus = this.state.doneStatus;
+  if(doneStatus){
+    if(doneStatus.includes('lost')){
+      style.backgroundImage = 'url(./images/cry.svg)';
+    }else{
+      style.backgroundImage = 'url(./images/smile.svg)';
+    }
+    style.backgroundSize = 'contain';
+    style.backgroundRepeat = 'no-repeat';
+    style.backgroundPosition = 'center';
+    style.backgroundOrigin = 'content-box';
+  }
+  return style;
+},
 acceptAnswer(){
   var usedNumbers = this.state.usedNumbers.concat(this.state.selectedNumbers);
   var that = this;
@@ -187,13 +203,13 @@ render(){
     <hr />
     </div>
     <div className="col-xs-5">
-    <StarsFrame numberOfStars={numberOfStars}/>
+    <StarsFrame numberOfStars={numberOfStars} bgProperty={this.getBgProperty}/>
     </div>
     <div className="col-xs-2">
     <ButtonFrame selectedNumbers={selectedNumbers} correct={correct} checkAnswer={this.checkAnswer} acceptAnswer={this.acceptAnswer} redraw={this.redraw} redrawsLeft={redrawsLeft}/>
     </div>
     <div className="col-xs-5">
-    <AnswerFrame selectedNumbers={selectedNumbers} removeSelectedNumber={this.removeSelectedNumber}/>
+    <AnswerFrame selectedNumbers={selectedNumbers} removeSelectedNumber={this.removeSelectedNumber} bgProperty={this.getBgProperty}/>
     </div>
     <div className="col-xs-12">
     {bottomFrame}
