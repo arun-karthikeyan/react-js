@@ -147,6 +147,13 @@ solutionPossible(){
   return arraySum[requiredSum];
 },
 getNumberOfStars(){
+  if(this.state && this.state.noOfStars){
+    var currentNoOfStars = this.state.noOfStars;
+    var newNoOfStars = Math.floor(Math.random()*9)+1;
+    while(newNoOfStars==currentNoOfStars){
+      newNoOfStars = Math.floor(Math.random()*9)+1;
+    }
+  }
   return Math.floor(Math.random()*9)+1;
 },
 removeSelectedNumber(number){
